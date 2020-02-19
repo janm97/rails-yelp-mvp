@@ -1,0 +1,10 @@
+<h1>Restaurant Book</h1>
+<ul class="list-group">
+<% @restaurants.each do |restaurant| %>
+<% @stars = "#{'★' * restaurant.average_rating}#{'☆' * (5 - restaurant.average_rating)}" %>
+<% @category_icons = { 'chinese' => '🇨🇳', 'italian' => '🇮🇹', 'japanese' => '🇯🇵', 'french' => '🇫🇷', 'belgian' => '🇧🇪'}%>
+<li class="list-group-item"> <span style="color:gold;"><%= @stars %></span> <%= @category_icons[restaurant.category] %>  | <%= restaurant.name %> <%= link_to 'More Info', restaurant_path(restaurant), class: 'badge badge-pill badge-primary' %> <%= link_to "Delete",  restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure?"}, class: 'badge badge-pill badge-danger' %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Add Restaurant', new_restaurant_path, class: 'btn btn-primary' %>

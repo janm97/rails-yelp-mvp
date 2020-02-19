@@ -1,0 +1,10 @@
+<%= simple_form_for @restaurant do |f|%>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, collection: ['chinese', 'italian', 'japanese', 'french', 'belgian'] %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to 'See All', restaurants_path, class: 'btn btn-secondary' %>
